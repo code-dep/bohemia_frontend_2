@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "938392860363",
+    "project_id": "bohemia-37e4b",
+    "storage_bucket": "bohemia-37e4b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:938392860363:android:9a180073389f8579cf0d4e",
+        "android_client_info": {
+          "package_name": "com.dep.bohemia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXhQC6ZjXwQ8Z8xTKkWt2cYeiRMFSK0Jc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

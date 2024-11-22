@@ -1,0 +1,49 @@
+name: bohemia
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.5.4
+
+dependencies:
+  cached_network_image: ^3.4.1
+  dio: ^5.7.0
+  flutter:
+    sdk: flutter
+  flutter_svg: ^2.0.14
+  get: ^4.6.6
+  image_picker: ^1.1.2
+  json_annotation: ^4.9.0
+  jwt_decode: ^0.3.1
+  mobile_scanner: ^6.0.2
+  qr_flutter: ^4.1.0
+  shared_preferences: ^2.3.3
+  uuid: ^4.5.1
+  mime: ^2.0.0
+  http_parser: ^4.0.2
+  animations: ^2.0.11
+  web_socket_channel: ^3.0.1
+  flutter_local_notifications: ^18.0.1
+  flutter_launcher_icons: ^0.14.1
+  firebase_messaging: ^15.1.5
+  firebase_core: ^3.8.0
+  firebase_in_app_messaging: ^0.8.0+10
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  build_runner: ^2.4.13
+  json_serializable: ^6.8.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/Logo_dark.svg
+    - assets/images/Logo_light.svg
+    - assets/images/placeholder.png
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/icon.png"
