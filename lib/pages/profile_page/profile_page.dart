@@ -1,12 +1,57 @@
 import 'package:bohemia/pages/profile_page/profile_page_model.dart';
 import 'package:bohemia/widgets/bottom_sheets/promoter_codes_bottom_sheet.dart';
 import 'package:bohemia/widgets/button/custom_button.dart';
+import 'package:bohemia/widgets/textfield/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ProfilePage extends StatelessWidget {
   final ProfilePageModel _model = ProfilePageModel();
   ProfilePage({super.key});
+
+  void _showDeleteAccountDialog(BuildContext context) {
+    final passwordController = TextEditingController();
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(0),
+        ),
+        title: const Text('Delete Account'),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text(
+              'This action cannot be undone. Please enter your password to confirm.',
+            ),
+            const SizedBox(height: 16),
+            CustomTextfield(
+              controller: passwordController,
+              hintText: 'Password',
+              obscureText: true,
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+              _model.deleteAccount(passwordController.text);
+            },
+            child: const Text(
+              'Delete',
+              style: TextStyle(color: Colors.red),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -110,13 +155,29 @@ class ProfilePage extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Row(
+              child: Column(
                 children: [
-                  Expanded(
-                    child: CustomButton(
-                      onPressed: _model.logout,
-                      text: 'Logout',
-                    ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: CustomButton(
+                          onPressed: _model.logout,
+                          text: 'Logout',
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: CustomButton(
+                          onPressed: () => _showDeleteAccountDialog(context),
+                          text: 'Delete Account',
+                          backgroundColor: Colors.red,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),

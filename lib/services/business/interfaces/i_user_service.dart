@@ -19,4 +19,5 @@ abstract class IUserService {
   Future<void> decodeAndSetToken(String token);
   Future<CommonApiResponse> createPromoterCode(String promoterCode);
   Future<PromoterCodesResponseDTO> getPromoterCodes();
+  Future<CommonApiResponse> deleteAccount(String password, String email);
 }

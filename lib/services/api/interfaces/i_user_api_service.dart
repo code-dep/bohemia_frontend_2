@@ -12,4 +12,5 @@ abstract class IUserApiService {
       String promoterCode);
   Future<PromoterCodesResponseDTO> getPromoterCodes();
   Future<CommonApiResponse> createPromoterCode(String promoterCode);
+  Future<CommonApiResponse> deleteAccount(String password, String email);
 }

@@ -77,4 +77,16 @@ class UserApiService implements IUserApiService {
       return PromoterCodesResponseDTO.fromJson(dict);
     });
   }
+
+  @override
+  Future<CommonApiResponse> deleteAccount(String password, String email) {
+    return apiMethodWrapper(() async {
+      var response = await _baseApiService.post('/account', {
+        'password': password,
+        'email': email,
+      });
+      var dict = response.data as Map<String, dynamic>;
+      return CommonApiResponse.fromJson(dict);
+    });
+  }
 }

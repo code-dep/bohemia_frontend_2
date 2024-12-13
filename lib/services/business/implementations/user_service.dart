@@ -101,4 +101,13 @@ class UserService implements IUserService {
       return res;
     });
   }
+
+  @override
+  Future<CommonApiResponse> deleteAccount(String password, String email) {
+    return serviceMethodWrapper(() async {
+      var res = await _userApiService.deleteAccount(password, email);
+      await logout();
+      return res;
+    });
+  }
 }
